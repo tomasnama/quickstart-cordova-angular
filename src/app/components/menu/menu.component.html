@@ -1,0 +1,20 @@
+<md-list>
+  <md-list-item>
+    <button md-button (click)="goPage1()">
+            <img  class="material-icons" src="./assets/img/ic_home_black_24px.svg" width="24" height="24"/>
+            {{ 'PAGE1.TITLE' | translate }}
+    </button>
+  </md-list-item>
+  <md-list-item>
+    <button md-button (click)="goPage2()">
+            <img  class="material-icons" src="./assets/img/ic_folder_black_24px.svg" width="24" height="24"/>
+            {{ 'PAGE2.TITLE' | translate }}
+    </button>
+  </md-list-item>
+  <md-list-item>
+      <button md-button (click)="goAbout()">
+            <img  class="material-icons" src="./assets/img/tomasapp.svg" width="24" height="24"/>
+            {{ 'ABOUT.TITLE' | translate}}
+      </button>
+  </md-list-item>
+</md-list>

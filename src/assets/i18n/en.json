@@ -1,0 +1,13 @@
+{
+    "PAGE1": {
+        "TITLE": "Page 1",
+        "TEXT": "Page 1 works!"
+    },
+    "PAGE2": {
+        "TITLE": "Page 2",
+        "TEXT": "Page 2 works!"
+    },
+    "ABOUT": {
+        "TITLE": "About"
+    }
+}

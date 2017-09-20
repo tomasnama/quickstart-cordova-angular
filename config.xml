@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.tomasapp.quickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>quickstart-cordova-angular4</name>
+    <name>Quickstart</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A sample Apache Cordova application and Angular2.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="tomas.navarro@gmail.com" href="http://tomasapp.com">
         Apache Cordova Team
     </author>
     <content src="index.html" />

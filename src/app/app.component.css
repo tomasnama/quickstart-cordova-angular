@@ -1,3 +1,25 @@
-.app-img {
-    width: 70vw;
+.header-toolbar {
+    padding: 0 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.app-content {
+    background-color: white;
+    top: 60px !important;
+}
+
+.app-sidenav {
+    padding: 20px;
+    transition: all .2s ease-out;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+}
+
+.app-spacer {
+    flex: 1 1 auto;
 }
