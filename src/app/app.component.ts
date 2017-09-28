@@ -24,10 +24,10 @@ export class AppComponent implements AfterViewInit {
   private icon: string;
 
   constructor(private titleService: Title,
-    private router: Router,
-    private menuService: MenuService,
-    private location: Location,
-    private translate: TranslateService) {
+              private router: Router,
+              private menuService: MenuService,
+              private location: Location,
+              private translate: TranslateService) {
 
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('en');

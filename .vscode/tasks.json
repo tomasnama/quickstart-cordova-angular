@@ -27,6 +27,21 @@
             "type": "npm",
             "script": "cordova:add:android",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "cordova:run:android:device",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "cordova:add:ios",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "cordova:run:ios",
+            "problemMatcher": []
         }
     ]
 }

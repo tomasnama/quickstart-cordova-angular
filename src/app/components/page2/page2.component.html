@@ -1,1 +1,4 @@
 <md-card class="page1-md-card">{{ 'PAGE2.TEXT' | translate }}</md-card>
+<md-list-item *ngFor="let text of listText">
+    <p md-line> {{text.id}} {{text.text}}</p>
+</md-list-item>
