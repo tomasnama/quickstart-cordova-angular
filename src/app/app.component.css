@@ -1,4 +1,6 @@
 .header-toolbar {
+    background-color: #2893cb;
+    color: white;
     padding: 0 0;
     position: fixed;
     top: 0;
@@ -9,7 +11,7 @@
 
 .app-content {
     background-color: white;
-    top: 60px !important;
+    top: 56px !important;
 }
 
 .app-sidenav {

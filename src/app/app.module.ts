@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule, MdCardModule, MdMenuModule } from '@angular/material';
+import { MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule, MdCardModule, MdMenuModule, MdGridListModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -46,7 +46,8 @@ export function createTranslateLoader(http: HttpClient) {
     MdButtonModule,
     MdListModule,
     MdCardModule,
-    MdMenuModule
+    MdMenuModule,
+    MdGridListModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

@@ -6,8 +6,8 @@ import { MenuService } from 'app/components/menu/menu.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 
-const ICO_MENU = "./assets/img/ic_menu_black_24px.svg";
-const ICO_BACK = "./assets/img/ic_arrow_back_black_24px.svg";
+const ICO_MENU = "./assets/img/ic_menu_white_24px.svg";
+const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";
 
 @Component({
   selector: 'app-root',

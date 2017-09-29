@@ -1,7 +1,8 @@
 {
     "PAGE1": {
         "TITLE": "Página 1",
-        "TEXT": "Página 1 funciona!"
+        "TEXT": "Página 1 funciona!",
+        "SQLITE": "CRUD"
     },
     "PAGE2": {
         "TITLE": "Página 2",
