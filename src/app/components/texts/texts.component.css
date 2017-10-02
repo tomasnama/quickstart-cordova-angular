@@ -1,0 +1,8 @@
+.texts-md-list-item {
+    border-bottom: solid 1px lightgrey;
+    padding: 5px 0 5px 0;
+}
+
+.texts-spacer {
+    flex: 1 1 auto;
+}

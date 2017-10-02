@@ -1,0 +1,10 @@
+<md-list>
+  <md-list-item class="texts-md-list-item" *ngFor="let text of listText">
+      <span>{{text.text}} </span>
+      <span class="texts-spacer"></span> 
+      <span>{{text.id}}</span>
+      <button md-icon-button (click)="goDetail()">
+          <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24" />
+      </button>
+  </md-list-item>
+</md-list>

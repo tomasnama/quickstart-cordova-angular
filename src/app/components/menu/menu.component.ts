@@ -30,5 +30,4 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/about']);
     this.menuService.sidenav.close();
   }
-
 }

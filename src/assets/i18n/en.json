@@ -8,6 +8,12 @@
         "TITLE": "Page 2",
         "TEXT": "Page 2 works!"
     },
+    "TEXT": {
+        "TITLE": "CRUD Texts"
+    },
+    "DETAIL": {
+        "TITLE": "Detail Text"
+    },
     "ABOUT": {
         "TITLE": "About"
     }

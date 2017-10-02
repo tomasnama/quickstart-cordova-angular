@@ -13,6 +13,8 @@ import { AboutComponent } from './components/about/about.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { appRoutes } from 'app/app.routes';
 import { MenuService } from 'app/components/menu/menu.service';
+import { TextsComponent } from './components/texts/texts.component';
+import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,7 +26,9 @@ export function createTranslateLoader(http: HttpClient) {
     Page1Component,
     Page2Component,
     AboutComponent,
-    MenuComponent
+    MenuComponent,
+    TextsComponent,
+    TextDetailComponent
   ],
   imports: [
     RouterModule.forRoot(
