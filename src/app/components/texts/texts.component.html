@@ -1,10 +1,20 @@
+<md-toolbar class="texts-toolbar">
+    <md-form-field class="search">
+        <input type="text" mdInput>
+        <img mdSuffix src="./assets/img/ic_search_black_24px.svg" />
+    </md-form-field>
+    <span class="texts-spacer"></span>
+    <button md-icon-button (click)="add()">
+        <img class="material-icons" src="./assets/img/ic_add_black_24px.svg"/>
+    </button>
+</md-toolbar>
 <md-list>
-  <md-list-item class="texts-md-list-item" *ngFor="let text of listText">
-      <span>{{text.text}} </span>
-      <span class="texts-spacer"></span> 
-      <span>{{text.id}}</span>
-      <button md-icon-button (click)="goDetail()">
+    <md-list-item class="texts-md-list-item" *ngFor="let text of listText">
+        <span>{{text.text}} </span>
+        <span class="texts-spacer"></span>
+        <span>{{text.id}}</span>
+        <button md-icon-button (click)="goDetail(text.id, text.text)">
           <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24" />
       </button>
-  </md-list-item>
+    </md-list-item>
 </md-list>

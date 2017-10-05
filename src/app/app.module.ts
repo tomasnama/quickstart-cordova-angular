@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule, MdCardModule, MdMenuModule, MdGridListModule } from '@angular/material';
+import { MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule, MdCardModule, MdMenuModule, MdGridListModule, MdInputModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -15,6 +15,7 @@ import { appRoutes } from 'app/app.routes';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TextsComponent } from './components/texts/texts.component';
 import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
+import { FormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,7 +52,9 @@ export function createTranslateLoader(http: HttpClient) {
     MdListModule,
     MdCardModule,
     MdMenuModule,
-    MdGridListModule
+    MdGridListModule,
+    FormsModule,
+    MdInputModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

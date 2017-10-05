@@ -1,0 +1,20 @@
+.text-detail-md-card {
+    padding: 10px;
+    margin: 10px;
+}
+
+.text-detail-form {
+    width: 100%;
+}
+
+.text-detail-spacer {
+    flex: 1 1 auto;
+}
+
+.text-detail-id {
+    width: 100px;
+}
+.text-detail-text {
+    width: 100%;
+    min-width: 300px;
+}

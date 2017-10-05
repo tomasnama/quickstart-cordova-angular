@@ -1,4 +1,16 @@
-<form>
-
-  
-</form>
+<md-card class="text-detail-md-card">
+    <form class="text-detail-form">
+        <md-form-field>
+            <input mdInput [placeholder]="'DETAIL.ID' | translate" [(ngModel)]="text.id" type="text" readonly name="id">
+        </md-form-field>
+        <md-form-field>
+            <input mdInput [placeholder]="'DETAIL.TEXT' | translate" [(ngModel)]="text.text" type="text" required name="text">
+        </md-form-field>
+        <md-card-actions>
+            <span class="text-detail-spacer"></span>
+            <button md-button (click)="accept()">{{'DETAIL.ACCEPT' | translate }}</button>
+            <button md-button (click)="cancel()">{{'DETAIL.CANCEL' | translate }}</button>
+            <button md-button (click)="remove()">{{'DETAIL.REMOVE' | translate }}</button>
+        </md-card-actions>
+    </form>
+</md-card>

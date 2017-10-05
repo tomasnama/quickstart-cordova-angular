@@ -1,6 +1,6 @@
 {
     "PAGE1": {
-        "TITLE": "Page 1",
+        "TITLE": "Demos",
         "TEXT": "Page 1 works!",
         "SQLITE": "CRUD"
     },
@@ -12,7 +12,13 @@
         "TITLE": "CRUD Texts"
     },
     "DETAIL": {
-        "TITLE": "Detail Text"
+        "TITLE": "Detail Text",
+        "TEXT": "Texto",
+        "ID": "id",
+        "ACCEPT": "Accept",
+        "CANCEL": "Cancel",
+        "REMOVE": "remove",
+        "ADD": "Add"
     },
     "ABOUT": {
         "TITLE": "About"

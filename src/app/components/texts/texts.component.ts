@@ -23,8 +23,13 @@ export class TextsComponent implements OnInit {
      });
   }
 
-  goDetail(): void {
-    this.router.navigate(['/detail']);
+  goDetail(id, text): void {
+    this.router.navigate(['/detail/'+id+'/'+text]);
+  }
+
+  add():void {
+    let id = 1;
+    this.router.navigate(['/detail/'+id+'/'+'']);
   }
 
 }
