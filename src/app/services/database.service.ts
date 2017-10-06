@@ -122,25 +122,32 @@ export class DatabaseService {
         });
     }
 
-    public nexVal(seq): number {
-        this.excuteQuery('SELECT SEQ_CURR_VAL from SEQ WHERE SEQ_NAME = ?', [seq])
-        .then(resultSet=> {
-            let _nexVal = resultSet.rows.item(0).SEQ_CURR_VAL;
-            if (_nexVal) {
-                return _nexVal
-            } else {
-                this.excuteQuery('INSERT INTO SEQ (SEQ_NAME, SEQ_CURR_VAL) VALUES (?, 1)', [seq])
-                .then(resultSet=> {
-                    if (resultSet.rowsAffected===1) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                    
-                });
-            }
-        })
-        return 0;
+    public nexVal(seq): any {
+        return new Promise((resolve, reject)=>{
+            this.excuteQuery('SELECT SEQ_CURR_VAL from SEQ WHERE SEQ_NAME = ?', [seq])
+            .then(resultSet=> {
+                let nextVal = null;
+                if(resultSet.rows.length>0) {
+                    let currentVal = resultSet.rows.item(0).SEQ_CURR_VAL;
+                    nextVal = parseInt(currentVal)+1;
+                    this.excuteQuery('UPDATE SEQ SET SEQ_CURR_VAL = ? WHERE SEQ_NAME = ?', [nextVal, seq])
+                    .then(resultSet=>{
+                        resolve(nextVal);
+                    });
+                } else {
+                    this.excuteQuery('INSERT INTO SEQ (SEQ_NAME, SEQ_CURR_VAL) VALUES (?, 1)', [seq])
+                    .then(resultSet=> {
+                        if (resultSet.rowsAffected===1) {
+                            resolve(1);
+                        } else {
+                            reject(Error("error generate sequence."));
+                        }
+                        
+                    });
+                }
+            })
+        });
     } 
+
 
 }

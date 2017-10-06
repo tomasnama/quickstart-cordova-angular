@@ -14,18 +14,23 @@ import { DatabaseService } from 'app/services/database.service';
 export class TextDetailComponent implements OnInit {
 
   public text: TextModel;
+  public mode: string;
 
   constructor(private route: ActivatedRoute,
-              private location: Location,
-              private textService: TextService) {
-    this.route.params.subscribe( params => 
-      {
-        let _id:number = params['id'];
-        let _text:string = params['text'];
-        this.text = new TextModel(_id, _text);
-      } 
+    private location: Location,
+    private textService: TextService) {
+    this.route.params.subscribe(params => {
+      let _id: number = params['id'];
+      let _text: string = params['text'];
+      this.mode = params['mode'];
+      debugger;
+      if (_text == "null") {
+        _text = null;
+      }
+      this.text = new TextModel(_id, _text);
+    }
     );
-   }
+  }
 
   ngOnInit() {
   }
@@ -34,22 +39,33 @@ export class TextDetailComponent implements OnInit {
     this.location.back();
   }
 
-  accept():void {
-    this.textService.update(this.text.text, this.text.id)
-    .then(existing=> {
-      this.location.back();
-    }).catch(error=> {
-      alert(error);
-    });
+  accept(): void {
+    if (this.text.text) {
+      if (this.textService.MODE_EDIT() === this.mode) {
+        this.textService.update(this.text.text, this.text.id)
+          .then(existing => {
+            this.location.back();
+          }).catch(error => {
+            alert(error);
+          });
+      } else if (this.textService.MODE_NEW() === this.mode) {
+        this.textService.add(this.text.id, this.text.text)
+          .then(existing => {
+            this.location.back();
+          }).catch(error => {
+            alert(error);
+          });
+      }
+    }
   }
 
-  remove():void {
+  remove(): void {
     this.textService.remove(this.text.id)
-    .then(existing=> {
-      this.location.back();
-    }).catch(error=> {
-      alert(error);
-    });
+      .then(existing => {
+        this.location.back();
+      }).catch(error => {
+        alert(error);
+      });
   }
 
 }

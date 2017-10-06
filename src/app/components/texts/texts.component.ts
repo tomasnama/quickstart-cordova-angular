@@ -15,7 +15,8 @@ export class TextsComponent implements OnInit {
   public listText: TextModel[] = new Array();
   
   constructor(private textService: TextService,
-              private router: Router) { }
+              private router: Router,
+              private databaseService: DatabaseService) { }
 
   ngOnInit() {
     this.textService.getTexts().then(listText=>{
@@ -24,12 +25,16 @@ export class TextsComponent implements OnInit {
   }
 
   goDetail(id, text): void {
-    this.router.navigate(['/detail/'+id+'/'+text]);
+    this.router.navigate(['/detail/'+id+'/'+text+'/'+this.textService.MODE_EDIT()]);
   }
 
   add():void {
-    let id = 1;
-    this.router.navigate(['/detail/'+id+'/'+'']);
+    this.databaseService.nexVal('SEQ_TEXTS').then(nextVal => {
+      let id = nextVal;
+      let text = null;
+      this.router.navigate(['/detail/'+id+'/'+text+'/'+this.textService.MODE_NEW()]);
+    });
   }
+
 
 }

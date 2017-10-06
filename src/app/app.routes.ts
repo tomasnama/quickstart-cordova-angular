@@ -32,7 +32,7 @@ export const appRoutes: Routes = [
     }
   },
   {
-    path: 'detail/:id/:text',
+    path: 'detail/:id/:text/:mode',
     component: TextDetailComponent,
     data: {
       title: 'DETAIL.TITLE',
