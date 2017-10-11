@@ -15,7 +15,6 @@ export class TextService {
         return new Promise((resolve, reject) => {
             this.databaseService.getAll(TABLE_NAME).then(resultSet => {
                 let listText: TextModel[] = new Array();
-                debugger;
                 for (var x = 0; x < resultSet.rows.length; x++) {
                     //console.log("id: " + resultSet.rows.item(x).ID + ", text: " + resultSet.rows.item(x).TEXT);
                     let textModel = new TextModel(resultSet.rows.item(x).ID, resultSet.rows.item(x).TEXT);

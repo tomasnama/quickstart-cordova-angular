@@ -4,6 +4,11 @@
   </button>
   <span>{{title}}</span>
   <span class="app-spacer"></span>
+
+  <button md-icon-button (click)="add()" *ngIf="altaText">
+      <img class="material-icons" src="./assets/img/ic_add_white_24px.svg"/>
+  </button>
+
   <button md-icon-button [mdMenuTriggerFor]="menu">
             <img class="material-icons" src="./assets/img/ic_more_vert_white_24px.svg"/>
   </button>
@@ -20,5 +25,5 @@
   <md-sidenav #sidenav class="app-sidenav" mode="over">
     <app-menu></app-menu>
   </md-sidenav>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
 </md-sidenav-container>

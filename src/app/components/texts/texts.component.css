@@ -6,13 +6,3 @@
 .texts-spacer {
     flex: 1 1 auto;
 }
-
-.texts-toolbar {
-    background-color: #EFF0F1;
-    color: black;
-}
-
-.search {
-    width: 100%;
-    padding: 0px 15px 0px 15px;
-}

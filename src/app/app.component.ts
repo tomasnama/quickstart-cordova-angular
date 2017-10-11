@@ -1,10 +1,11 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MdSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
+import { TextsComponent } from 'app/components/texts/texts.component';
 
 const ICO_MENU = "./assets/img/ic_menu_white_24px.svg";
 const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";
@@ -19,15 +20,20 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 
+  public event : any;
+  public altaText: boolean = false;
+
   private title: string;
   private back: boolean;
   private icon: string;
 
+
+
   constructor(private titleService: Title,
-              private router: Router,
-              private menuService: MenuService,
-              private location: Location,
-              private translate: TranslateService) {
+    private router: Router,
+    private menuService: MenuService,
+    private location: Location,
+    private translate: TranslateService) {
 
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('en');
@@ -54,14 +60,14 @@ export class AppComponent implements AfterViewInit {
 
   }
 
-  getData(state, parent, value) {
+  private getData(state, parent, value) {
     var data = [];
     if (parent && parent.snapshot.data && parent.snapshot.data[value]) {
       data.push(parent.snapshot.data[value]);
     }
 
     if (state && parent) {
-      data.push(... this.getData(state, state.firstChild(parent),value));
+      data.push(... this.getData(state, state.firstChild(parent), value));
     }
     return data;
   }
@@ -70,16 +76,29 @@ export class AppComponent implements AfterViewInit {
     this.menuService.sidenav = this.sidenav;
   }
 
-  start(): void {
-    if (this.back===true) {
+  public start(): void {
+    if (this.back === true) {
       this.location.back();
     } else {
-        this.menuService.start();
+      this.menuService.start();
     }
   }
 
-  changeLan(lan:string):void {
+  public changeLan(lan: string): void {
     this.translate.use(lan);
   }
-  
+
+  public add(): void {
+    this.event.add();
+  }
+
+  public onRouterOutletActivate(event: any) {
+    if (event instanceof TextsComponent) {
+      this.altaText = true;
+    } else {
+      this.altaText = false;
+    }
+    this.event = event;
+  }
+
 }

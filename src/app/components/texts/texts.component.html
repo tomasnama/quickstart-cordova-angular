@@ -1,15 +1,5 @@
-<md-toolbar class="texts-toolbar">
-    <md-form-field class="search">
-        <input type="text" mdInput>
-        <img mdSuffix src="./assets/img/ic_search_black_24px.svg" />
-    </md-form-field>
-    <span class="texts-spacer"></span>
-    <button md-icon-button (click)="add()">
-        <img class="material-icons" src="./assets/img/ic_add_black_24px.svg"/>
-    </button>
-</md-toolbar>
 <md-list class="texts-md-list">
-    <md-list-item class="texts-md-list-item" *ngFor="let text of listText">
+    <md-list-item class="texts-md-list-item" *ngFor="let text of listText" (click)="goDetail(text.id, text.text)">
         <span>{{text.text}} </span>
         <span class="texts-spacer"></span>
         <span>{{text.id}}</span>
