@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { MenuService } from 'app/components/menu/menu.service';
@@ -18,7 +18,7 @@ const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('sidenav') sidenav: MdSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
   public event : any;
   public altaText: boolean = false;

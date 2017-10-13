@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 @Injectable()
 export class MenuService {
 
-  public sidenav: MdSidenav;
+  public sidenav: MatSidenav;
 
   public start():void {
     if (this.sidenav.opened) {

@@ -1,1 +1,12 @@
-<md-card class="page1-md-card">{{ 'PAGE2.TEXT' | translate }}</md-card>
+<mat-table #table [dataSource]="dataSource">
+    <ng-container mdColumnDef="infoname">
+        <mat-header-cell *matHeaderCellDef> ScreenSize </mat-header-cell>
+        <mat-cell *mdCellDef="let element"> {{element.infoname}} </mat-cell>
+    </ng-container>
+    <ng-container mdColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Connection </mat-header-cell>
+        <mat-cell *mdCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

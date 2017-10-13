@@ -1,11 +1,29 @@
-<md-list>
-    <md-list-item class="page1-md-list-item" (click)="goTexts()">
-        <img class="material-icons" src="./assets/img/SQLite.svg" width="120" />
+<mat-list>
+    <mat-list-item class="page1-mat-list-item" (click)="goTexts()">
+        <img class="material-icons" src="./assets/img/SQLite.svg" height="30"/>
         <span class="page1-spacer"></span>
         <span>{{ 'PAGE1.SQLITE' | translate }}</span>
         <span class="page1-spacer"></span>
-       <button md-icon-button (click)="goTexts()">
+       <button mat-icon-button (click)="goTexts()">
             <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24" />
         </button>
-    </md-list-item>
-</md-list>
+    </mat-list-item>
+    <mat-list-item class="page1-mat-list-item" (click)="goLocation()">
+        <img class="material-icons" src="./assets/img/location-marker.svg" height="30" />
+        <span class="page1-spacer"></span>
+        <span>{{ 'PAGE1.LOCATION' | translate }}</span>
+        <span class="page1-spacer"></span>
+       <button mat-icon-button (click)="goLocation()">
+            <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24" />
+        </button>
+    </mat-list-item>
+    <mat-list-item class="page1-mat-list-item" (click)="goQr()">
+        <img class="material-icons" src="./assets/img/qr-code.svg" height="30"  />
+        <span class="page1-spacer"></span>
+        <span>{{ 'PAGE1.QR' | translate }}</span>
+        <span class="page1-spacer"></span>
+       <button mat-icon-button (click)="goQr()">
+            <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24"/>
+        </button>
+    </mat-list-item>
+</mat-list>

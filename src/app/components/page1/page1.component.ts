@@ -13,7 +13,16 @@ export class Page1Component implements OnInit {
   ngOnInit() {
   }
 
-  goTexts(): void {
+  public goTexts(): void {
     this.router.navigate(['/texts']);
   }
+
+  public goLocation(): void {
+    this.router.navigate(['/location']);
+  }
+
+  public goQr(): void {
+    this.router.navigate(['/qr']);
+  }
+
 }

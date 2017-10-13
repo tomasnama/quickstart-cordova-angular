@@ -2,11 +2,12 @@
     "PAGE1": {
         "TITLE": "Demos",
         "TEXT": "Page 1 works!",
-        "SQLITE": "CRUD"
+        "SQLITE": "CRUD",
+        "LOCATION": "Location",
+        "QR": "QR"
     },
     "PAGE2": {
-        "TITLE": "Page 2",
-        "TEXT": "Page 2 works!"
+        "TITLE": "Info"
     },
     "TEXT": {
         "TITLE": "CRUD Texts"
@@ -22,5 +23,11 @@
     },
     "ABOUT": {
         "TITLE": "About"
+    },
+    "LOCATION": {
+        "TITLE": "Location"
+    },
+    "QR": {
+        "TITLE": "QR"
     }
 }

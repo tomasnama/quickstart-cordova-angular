@@ -1,29 +1,29 @@
-<md-toolbar class="header-toolbar">
-  <button md-icon-button (click)="start()">
+<mat-toolbar class="header-toolbar">
+  <button mat-icon-button (click)="start()">
         <img class="material-icons" [src]="icon"/>
   </button>
   <span>{{title}}</span>
   <span class="app-spacer"></span>
 
-  <button md-icon-button (click)="add()" *ngIf="altaText">
+  <button mat-icon-button (click)="add()" *ngIf="altaText">
       <img class="material-icons" src="./assets/img/ic_add_white_24px.svg"/>
   </button>
 
-  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
             <img class="material-icons" src="./assets/img/ic_more_vert_white_24px.svg"/>
   </button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item (click)="changeLan('en')">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="changeLan('en')">
       <span>en</span>
     </button>
-    <button md-menu-item (click)="changeLan('es')"> 
+    <button mat-menu-item (click)="changeLan('es')"> 
       <span>es</span>
     </button>
-  </md-menu>
-</md-toolbar>
-<md-sidenav-container fullscreen class="app-content">
-  <md-sidenav #sidenav class="app-sidenav" mode="over">
+  </mat-menu>
+</mat-toolbar>
+<mat-sidenav-container fullscreen class="app-content">
+  <mat-sidenav #sidenav class="app-sidenav" mode="over">
     <app-menu></app-menu>
-  </md-sidenav>
+  </mat-sidenav>
   <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
-</md-sidenav-container>
+</mat-sidenav-container>

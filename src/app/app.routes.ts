@@ -4,6 +4,8 @@ import { AboutComponent } from "app/components/about/about.component";
 import { Page2Component } from "app/components/page2/page2.component";
 import { TextsComponent } from "app/components/texts/texts.component";
 import { TextDetailComponent } from "app/components/texts/text-detail/text-detail.component";
+import { LocationComponent } from "app/components/location/location.component";
+import { QrComponent } from "app/components/qr/qr.component";
 
 
 export const appRoutes: Routes = [
@@ -36,6 +38,22 @@ export const appRoutes: Routes = [
     component: TextDetailComponent,
     data: {
       title: 'DETAIL.TITLE',
+      back: true,
+    }
+  },
+  {
+    path: 'location',
+    component: LocationComponent,
+    data: {
+      title: 'LOCATION.TITLE',
+      back: true,
+    }
+  },
+  {
+    path: 'qr',
+    component: QrComponent,
+    data: {
+      title: 'QR.TITLE',
       back: true,
     }
   },

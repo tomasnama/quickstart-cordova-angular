@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { MdToolbarModule, MdSidenavModule, MdButtonModule, MdListModule, MdCardModule, MdMenuModule, MdGridListModule, MdInputModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatTableModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -16,6 +16,8 @@ import { MenuService } from 'app/components/menu/menu.service';
 import { TextsComponent } from './components/texts/texts.component';
 import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
 import { FormsModule } from '@angular/forms';
+import { LocationComponent } from './components/location/location.component';
+import { QrComponent } from './components/qr/qr.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,7 +31,9 @@ export function createTranslateLoader(http: HttpClient) {
     AboutComponent,
     MenuComponent,
     TextsComponent,
-    TextDetailComponent
+    TextDetailComponent,
+    LocationComponent,
+    QrComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -45,16 +49,18 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     BrowserModule,
-    NoopAnimationsModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdButtonModule,
-    MdListModule,
-    MdCardModule,
-    MdMenuModule,
-    MdGridListModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatGridListModule,
     FormsModule,
-    MdInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatTableModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

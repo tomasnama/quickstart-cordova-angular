@@ -23,7 +23,6 @@ export class TextDetailComponent implements OnInit {
       let _id: number = params['id'];
       let _text: string = params['text'];
       this.mode = params['mode'];
-      debugger;
       if (_text == "null") {
         _text = null;
       }
