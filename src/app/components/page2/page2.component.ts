@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { DataSource } from '@angular/cdk/table';
-import { CdkTable } from '@angular/cdk/table';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/map';
 
 declare let Connection: any;
 declare let navigator: any;
@@ -15,23 +18,19 @@ declare let navigator: any;
 
 export class Page2Component implements OnInit {
 
-  public dataSource: ExampleDataSource | null;
-  public displayedColumns = ['infoname', 'name'];
-  @ViewChild('table')
-  table: CdkTable<any>;
-
-  public screenSize: string;
-  public connection: string;
-
-  constructor() {
-    
-      }
+  displayedColumns = ['info', 'value'];
+  exampleDatabase = new ExampleDatabase();
+  dataSource: ExampleDataSource | null;
 
   ngOnInit() {
+    this.setInfo();
+    this.dataSource = new ExampleDataSource(this.exampleDatabase);
+  }
 
-    debugger;
-    
-    this.dataSource = new ExampleDataSource();
+
+
+  public setInfo(): void {
+    this.dataSource = new ExampleDataSource(this.exampleDatabase);
 
     var networkState = navigator.connection.type;
 
@@ -45,18 +44,20 @@ export class Page2Component implements OnInit {
     states[Connection.CELL] = 'Cell generic connection';
     states[Connection.NONE] = 'No network connection';
 
-    this.connection = 'Connection type: ' + states[networkState];
-
+    let connection = 'Connection type: ' + states[networkState];
+    this.exampleDatabase.addInfo('connection', connection);
 
     let unknown = '-';
 
     // screen
-    this.screenSize = '';
+    let screenSize = '';
     if (screen.width) {
       let width = (screen.width) ? screen.width : '';
       let height = (screen.height) ? screen.height : '';
-      this.screenSize += '' + width + " x " + height;
+      screenSize += '' + width + " x " + height;
     }
+
+    this.exampleDatabase.addInfo('screenSize', screenSize);
 
     // browser
     var nVer = navigator.appVersion;
@@ -131,8 +132,15 @@ export class Page2Component implements OnInit {
       majorVersion = parseInt(navigator.appVersion, 10);
     }
 
+    this.exampleDatabase.addInfo('appVersion', nVer);
+    this.exampleDatabase.addInfo('userAgent', nAgt);
+    this.exampleDatabase.addInfo('appName', browser);
+    this.exampleDatabase.addInfo('version', version);
+    this.exampleDatabase.addInfo('majorVersion', ' ' + majorVersion);
+
     // mobile version
     var mobile = /Mobile|mini|Fennec|Android|iP(ad|od|hone)/.test(nVer);
+    this.exampleDatabase.addInfo('mobile', '' + mobile);
 
     // cookie
     var cookieEnabled = (navigator.cookieEnabled) ? true : false;
@@ -141,6 +149,7 @@ export class Page2Component implements OnInit {
       document.cookie = 'testcookie';
       cookieEnabled = (document.cookie.indexOf('testcookie') != -1) ? true : false;
     }
+    this.exampleDatabase.addInfo('cookieEnabled', '' + cookieEnabled);
 
     // system
     var os = unknown;
@@ -180,7 +189,7 @@ export class Page2Component implements OnInit {
       }
     }
 
-    var osVersion = unknown;
+    var osVersion: any = unknown;
 
     if (/Windows/.test(os)) {
       osVersion = /Windows (.*)/.exec(os)[1];
@@ -197,27 +206,65 @@ export class Page2Component implements OnInit {
         break;
 
       case 'iOS':
-        //osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
-        //osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
+        osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
+        osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
         break;
     }
 
+    this.exampleDatabase.addInfo('os', '' + os);
+    this.exampleDatabase.addInfo('osVersion', '' + osVersion);
+  }
+}
+
+export interface InfoData {
+  info: string;
+  value: string;
+}
+
+/** An example database that the data source uses to retrieve data for the table. */
+export class ExampleDatabase {
+  /** Stream that emits whenever the data has been modified. */
+  dataChange: BehaviorSubject<InfoData[]> = new BehaviorSubject<InfoData[]>([]);
+  get data(): InfoData[] { return this.dataChange.value; }
+
+  constructor() {
   }
 
+  addInfo(_info: string, _value: string) {
+    const copiedData = this.data.slice();
+    copiedData.push({
+      info: _info,
+      value: _value
+    });
+    this.dataChange.next(copiedData);
+  }
+
+  private createNewInfo() {
+    return {
+      info: 'info',
+      value: 'value'
+    };
+  }
 }
 
-export interface Element {
-  infoname: string;
-  name: string;
-}
-
+/**
+* Data source to provide what data should be rendered in the table. Note that the data source
+* can retrieve its data in any way. In this case, the data source is provided a reference
+* to a common data base, ExampleDatabase. It is not the data source's responsibility to manage
+* the underlying data. Instead, it only needs to take the data and send the table exactly what
+* should be rendered.
+*/
 export class ExampleDataSource extends DataSource<any> {
-  data: Element[]= [{infoname:'Test', name: 'Hola'}];
-
-  connect(): Observable<Element[]> {
-    return Observable.of(this.data);
+  constructor(private _exampleDatabase: ExampleDatabase) {
+    super();
   }
 
-  disconnect() {}
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<InfoData[]> {
+    return this._exampleDatabase.dataChange;
+  }
+
+  disconnect() { }
 }
+
 

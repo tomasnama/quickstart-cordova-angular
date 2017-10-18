@@ -1,12 +1,21 @@
-<mat-table #table [dataSource]="dataSource">
-    <ng-container mdColumnDef="infoname">
-        <mat-header-cell *matHeaderCellDef> ScreenSize </mat-header-cell>
-        <mat-cell *mdCellDef="let element"> {{element.infoname}} </mat-cell>
-    </ng-container>
-    <ng-container mdColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Connection </mat-header-cell>
-        <mat-cell *mdCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div class="page1-container mat-elevation-z8">
+    <cdk-table #table [dataSource]="dataSource" class="page1-table">
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- ID Column -->
+        <ng-container cdkColumnDef="info">
+            <cdk-header-cell *cdkHeaderCellDef class="page1-header-cell page1-header-cell-info"> Info </cdk-header-cell>
+            <cdk-cell *cdkCellDef="let row" class="page1-cell"> {{row.info}} </cdk-cell>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container cdkColumnDef="value">
+            <cdk-header-cell *cdkHeaderCellDef class="page1-header-cell"> value </cdk-header-cell>
+            <cdk-cell *cdkCellDef="let row" class="page1-cell"> {{row.value}} </cdk-cell>
+        </ng-container>
+
+        <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="page1-header-row"></cdk-header-row>
+        <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="page1-row"></cdk-row>
+    </cdk-table>
+</div>

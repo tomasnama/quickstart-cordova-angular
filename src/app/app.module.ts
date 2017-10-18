@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,6 +18,7 @@ import { TextDetailComponent } from './components/texts/text-detail/text-detail.
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/location/location.component';
 import { QrComponent } from './components/qr/qr.component';
+import { CdkTableModule } from '@angular/cdk/table';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -60,7 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatInputModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatTableModule
+    CdkTableModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

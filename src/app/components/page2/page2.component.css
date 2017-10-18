@@ -1,4 +1,39 @@
-.page1-mat-card {
-    padding: 10px;
-    margin: 10px;
-}
+ /*
+   * Styles to make the demo's cdk-table match the material design spec
+   * https://material.io/guidelines/components/data-tables.html
+   */
+  .page1-table {
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .page1-header-row, .page1-row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 8px;
+  }
+  
+  .page1-cell, .page1-header-cell {
+    flex: 1;
+  }
+  
+  .page1-header-cell {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .page1-header-cell-info {
+    width: 100px;
+  }
+  
+  
+  
+  .page1-cell {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
