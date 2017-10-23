@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
+import { MapsAPILoader } from '@agm/core';
 import { } from 'googlemaps';
+import { Marker } from '@agm/core/services/google-maps-types';
 
 @Component({
   selector: 'app-location',
@@ -11,13 +14,15 @@ export class LocationComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   public zoom: number;
+  public markers: Array<Marker> = new Array<Marker>();
 
-  constructor() { }
+  constructor(private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
-    navigator.geolocation.watchPosition((position) => {
+    this.zoom = 7
+    navigator.geolocation.getCurrentPosition((position) => {
       this.getPosition(position);
-    }, (error)=> {
+    }, (error) => {
       this.errorPosition(error);
     });
   }
@@ -25,6 +30,17 @@ export class LocationComponent implements OnInit {
   private getPosition(position) {
     this.latitude = position.coords.latitude;
     this.longitude = position.coords.longitude;
+ 
+    var marker: any = {
+      lat: this.latitude,
+      lng: this.longitude,
+      info: 'You are here'
+    };
+
+    this.markers.push(marker);
+    var infowindow = new google.maps.InfoWindow({
+      content: 'You are here'
+    });
 
   }
 
@@ -32,28 +48,5 @@ export class LocationComponent implements OnInit {
     alert(error.message);
   }
 
-  private buscarDireccio(me) {
-    var geocoder : google.maps.Geocoder = new google.maps.Geocoder();
-    geocoder.geocode({
-      address: me.resultService.resultModel.direccio +", " + me.resultService.resultModel.poblacio
-     }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        me.latitude = results[0].geometry.location.lat();
-        me.longitude = results[0].geometry.location.lng();
-        me.zoom = 17;
-        var marker = {
-          lat: results[0].geometry.location.lat(),
-          lng: results[0].geometry.location.lng(),
-          info: me.resultService.resultModel.nom
-        };
-        me.markers.push(marker);
-        var infowindow = new google.maps.InfoWindow({
-          content: me.resultService.resultModel.nom
-        });
-      } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-  }
 
 }

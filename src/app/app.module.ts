@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/location/location.component';
 import { QrComponent } from './components/qr/qr.component';
 import { CdkTableModule } from '@angular/cdk/table';
+import { AgmCoreModule } from '@agm/core';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,6 +43,9 @@ export function createTranslateLoader(http: HttpClient) {
       appRoutes,
       { enableTracing: false }
     ),
+    AgmCoreModule.forRoot({
+      apiKey:  'KEY'
+    }),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
