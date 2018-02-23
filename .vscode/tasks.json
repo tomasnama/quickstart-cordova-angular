@@ -42,6 +42,11 @@
             "type": "npm",
             "script": "cordova:run:ios",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "cordova:run:android",
+            "problemMatcher": []
         }
     ]
 }
