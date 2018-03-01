@@ -1,11 +1,11 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MatSidenav } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 import { TextsComponent } from 'app/components/texts/texts.component';
+import { MatSidenav } from '@angular/material';
 
 const ICO_MENU = "./assets/img/ic_menu_white_24px.svg";
 const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";

@@ -21,9 +21,9 @@
     </button>
   </mat-menu>
 </mat-toolbar>
-<mat-sidenav-container fullscreen class="app-content">
-  <mat-sidenav #sidenav class="app-sidenav" mode="over">
+<mat-drawer-container autosize class="app-content">
+  <mat-drawer #sidenav class="app-sidenav" mode="sid">
     <app-menu></app-menu>
-  </mat-sidenav>
+  </mat-drawer>
   <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
-</mat-sidenav-container>
+</mat-drawer-container>
