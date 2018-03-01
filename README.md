@@ -1,4 +1,4 @@
-# Cordova and angular4 quickstart Source
+# Cordova and angular quickstart Source
 
 This repository contains my initial source code for Angular and Cordoba web applications.
 
