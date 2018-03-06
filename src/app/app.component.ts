@@ -78,7 +78,8 @@ export class AppComponent implements AfterViewInit {
 
   public start(): void {
     if (this.back === true) {
-      this.location.back();
+      //this.location.back();
+      this.router.navigate(['/page1']);
     } else {
       this.menuService.start();
     }

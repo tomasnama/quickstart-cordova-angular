@@ -12,6 +12,7 @@
 .app-content {
     background-color: white;
     top: 56px !important;
+    height: calc(100vh - 56px);
 }
 
 .app-sidenav {

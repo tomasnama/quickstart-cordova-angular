@@ -75,6 +75,8 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-geolocation": {}
     },
-    "platforms": []
+    "platforms": [
+      "browser"
+    ]
   }
 }
