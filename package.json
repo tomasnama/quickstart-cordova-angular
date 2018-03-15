@@ -14,7 +14,8 @@
     "cordova:run:android": "cordova run android",
     "cordova:run:android:device": "cordova run android --device",
     "cordova:run:browser": "cordova run browser",
-    "cordova:run:ios": "cordova emulate ios"
+    "cordova:run:ios": "cordova emulate ios",
+    "update": "npm update -D && npm update -S"
   },
   "private": true,
   "dependencies": {

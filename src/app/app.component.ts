@@ -3,10 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Location } from '@angular/common';
 import { TextsComponent } from 'app/components/texts/texts.component';
 import { MatSidenav } from '@angular/material';
-
 const ICO_MENU = "./assets/img/ic_menu_white_24px.svg";
 const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";
 
@@ -32,7 +30,6 @@ export class AppComponent implements AfterViewInit {
   constructor(private titleService: Title,
     private router: Router,
     private menuService: MenuService,
-    private location: Location,
     private translate: TranslateService) {
 
     translate.addLangs(['en', 'es']);
@@ -78,8 +75,7 @@ export class AppComponent implements AfterViewInit {
 
   public start(): void {
     if (this.back === true) {
-      //this.location.back();
-      this.router.navigate(['/page1']);
+      this.menuService.back();
     } else {
       this.menuService.start();
     }

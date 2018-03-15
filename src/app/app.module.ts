@@ -11,7 +11,6 @@ import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
 import { AboutComponent } from './components/about/about.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { appRoutes } from 'app/app.routes';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TextsComponent } from './components/texts/texts.component';
 import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
@@ -20,6 +19,7 @@ import { LocationComponent } from './components/location/location.component';
 import { QrComponent } from './components/qr/qr.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AgmCoreModule } from '@agm/core';
+import { AppRoutingModule } from './app.routes';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -39,10 +39,6 @@ export function createTranslateLoader(http: HttpClient) {
     QrComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false }
-    ),
     AgmCoreModule.forRoot({
       apiKey:  'KEY'
     }),
@@ -66,7 +62,8 @@ export function createTranslateLoader(http: HttpClient) {
     MatInputModule,
     MatMenuModule,
     MatFormFieldModule,
-    CdkTableModule
+    CdkTableModule,
+    AppRoutingModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

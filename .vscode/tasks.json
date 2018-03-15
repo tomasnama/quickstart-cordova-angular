@@ -47,6 +47,11 @@
             "type": "npm",
             "script": "cordova:run:android",
             "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "update",
+            "problemMatcher": []
         }
     ]
 }
