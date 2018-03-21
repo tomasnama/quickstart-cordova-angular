@@ -14,15 +14,15 @@ export class Page1Component implements OnInit {
   }
 
   public goTexts(): void {
-    this.router.navigate(['/texts']);
+    this.router.navigate(['/texts'], {skipLocationChange:true});
   }
 
   public goLocation(): void {
-    this.router.navigate(['/location']);
+    this.router.navigate(['/location']), {skipLocationChange:true};
   }
 
   public goQr(): void {
-    this.router.navigate(['/qr']);
+    this.router.navigate(['/qr'], {skipLocationChange:true});
   }
 
 }

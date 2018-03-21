@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TextModel } from 'app/model/text.model';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { TextService } from 'app/services/text.service';
 import { DatabaseService } from 'app/services/database.service';
+import { MenuService } from '../../menu/menu.service';
 
 @Component({
   selector: 'app-text-detail',
@@ -17,8 +17,8 @@ export class TextDetailComponent implements OnInit {
   public mode: string;
 
   constructor(private route: ActivatedRoute,
-    private location: Location,
-    private textService: TextService) {
+    private textService: TextService,
+    private menu: MenuService) {
     this.route.params.subscribe(params => {
       let _id: number = params['id'];
       let _text: string = params['text'];
@@ -35,7 +35,7 @@ export class TextDetailComponent implements OnInit {
   }
 
   cancel(): void {
-    this.location.back();
+    this.menu.back();
   }
 
   accept(): void {
@@ -43,14 +43,14 @@ export class TextDetailComponent implements OnInit {
       if (this.textService.MODE_EDIT() === this.mode) {
         this.textService.update(this.text.text, this.text.id)
           .then(existing => {
-            this.location.back();
+            this.menu.back();
           }).catch(error => {
             alert(error);
           });
       } else if (this.textService.MODE_NEW() === this.mode) {
         this.textService.add(this.text.id, this.text.text)
           .then(existing => {
-            this.location.back();
+            this.menu.back();
           }).catch(error => {
             alert(error);
           });
@@ -61,7 +61,7 @@ export class TextDetailComponent implements OnInit {
   remove(): void {
     this.textService.remove(this.text.id)
       .then(existing => {
-        this.location.back();
+        this.menu.back();
       }).catch(error => {
         alert(error);
       });

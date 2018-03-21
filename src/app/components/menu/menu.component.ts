@@ -17,17 +17,17 @@ export class MenuComponent implements OnInit {
   }
 
   goPage1():void {
-    this.router.navigate(['/page1']);
+    this.router.navigate(['/page1'], {skipLocationChange:true});
     this.menuService.sidenav.close();
   }
 
   goPage2():void {
-    this.router.navigate(['/page2']);
+    this.router.navigate(['/page2'], {skipLocationChange:true});
     this.menuService.sidenav.close();
   }
 
   goAbout():void {
-    this.router.navigate(['/about']);
+    this.router.navigate(['/about'], {skipLocationChange:true});
     this.menuService.sidenav.close();
   }
 }

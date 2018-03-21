@@ -22,8 +22,9 @@
   </mat-menu>
 </mat-toolbar>
 <mat-drawer-container autosize class="app-content">
-  <mat-drawer #sidenav class="app-sidenav" mode="sid">
+  <mat-drawer #sidenav class="app-sidenav" mode="side">
     <app-menu></app-menu>
   </mat-drawer>
   <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
 </mat-drawer-container>
+

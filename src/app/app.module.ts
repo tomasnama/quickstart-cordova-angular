@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -20,6 +19,7 @@ import { QrComponent } from './components/qr/qr.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -39,19 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
     QrComponent
   ],
   imports: [
-    AgmCoreModule.forRoot({
-      apiKey:  'KEY'
-    }),
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
     BrowserModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
@@ -63,7 +51,19 @@ export function createTranslateLoader(http: HttpClient) {
     MatMenuModule,
     MatFormFieldModule,
     CdkTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey:  'KEY'
+    }),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

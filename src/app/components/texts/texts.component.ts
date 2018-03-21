@@ -29,7 +29,7 @@ export class TextsComponent implements OnInit {
   }
 
   public goDetail(id, text): void {
-    this.router.navigate(['/detail/' + id + '/' + text + '/' + this.textService.MODE_EDIT()]);
+    this.router.navigate(['/detail/' + id + '/' + text + '/' + this.textService.MODE_EDIT()], {skipLocationChange:true});
   }
 
   @Output() childEvent = new EventEmitter();
@@ -37,7 +37,7 @@ export class TextsComponent implements OnInit {
     this.databaseService.nexVal('SEQ_TEXTS').then(nextVal => {
       let id = nextVal;
       let text = null;
-      this.router.navigate(['/detail/' + id + '/' + text + '/' + this.textService.MODE_NEW()]);
+      this.router.navigate(['/detail/' + id + '/' + text + '/' + this.textService.MODE_NEW()], {skipLocationChange:true});
     });
   }
 
