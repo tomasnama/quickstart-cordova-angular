@@ -8,6 +8,8 @@ import { MatSidenav } from '@angular/material';
 const ICO_MENU = "./assets/img/ic_menu_white_24px.svg";
 const ICO_BACK = "./assets/img/ic_arrow_back_white_24px.svg";
 
+declare let navigator: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +20,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
 
-  public event : any;
+  public event: any;
   public altaText: boolean = false;
 
   private title: string;
@@ -54,6 +56,13 @@ export class AppComponent implements AfterViewInit {
 
       }
     });
+
+    document.addEventListener("backbutton", function (e) {
+      let r = confirm("Press a button!");
+      if (r == true) {
+        navigator.app.exitApp();
+      } 
+    }, false);
 
   }
 

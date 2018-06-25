@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
 import { MapsAPILoader } from '@agm/core';
-import { } from 'googlemaps';
 import { Marker } from '@agm/core/services/google-maps-types';
 
 @Component({
@@ -38,9 +36,6 @@ export class LocationComponent implements OnInit {
     };
 
     this.markers.push(marker);
-    var infowindow = new google.maps.InfoWindow({
-      content: 'You are here'
-    });
 
   }
 

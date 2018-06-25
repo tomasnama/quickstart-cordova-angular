@@ -13,6 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuService } from 'app/components/menu/menu.service';
 import { TextsComponent } from './components/texts/texts.component';
 import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
+import { ExitappdialogComponent } from './components/dialogs/exitappdialog/exitappdialog.component';
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/location/location.component';
 import { QrComponent } from './components/qr/qr.component';
@@ -20,6 +21,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,7 +38,8 @@ export function createTranslateLoader(http: HttpClient) {
     TextsComponent,
     TextDetailComponent,
     LocationComponent,
-    QrComponent
+    QrComponent,
+    ExitappdialogComponent
   ],
   imports: [
     BrowserModule,
