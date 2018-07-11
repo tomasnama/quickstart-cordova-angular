@@ -1,4 +1,12 @@
 {
+    "APP": {
+        "VERSION": "1.0.0",
+        "TITLE": "Quick",
+        "ACCEPT": "Aceptar",
+        "CANCEL": "Cancelar",
+        "EXIT_TITLE": "Salir",
+        "EXIT_MSG": "¿Quieres salir de la aplicación?"
+    },
     "PAGE1": {
         "TITLE": "Demos",
         "TEXT": "Página 1 funciona!",

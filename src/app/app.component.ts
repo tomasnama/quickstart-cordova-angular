@@ -33,7 +33,6 @@ export class AppComponent implements AfterViewInit {
     private menuService: MenuService,
     private translate: TranslateService) {
 
-    translate.addLangs(['en', 'es']);
     translate.setDefaultLang('en');
     translate.use(translate.getBrowserLang());
 
@@ -56,19 +55,28 @@ export class AppComponent implements AfterViewInit {
       }
     });
 
-    document.addEventListener("backbutton", function (e) {
-      navigator.notification.confirm(
-        'Do you want to exit?',
-        function (result) {
-          if (result == 1) {
-            navigator.app.exitApp();
-          }
-        },
-        'Exit',
-        ['Accept', 'Cancel']
-      );
-    }, false);
+    this.translate.get('APP.EXIT_MSG').subscribe((msg: string) => {
+      this.translate.get('APP.EXIT_TITLE').subscribe((title: string) => {
+        this.translate.get('APP.ACCEPT').subscribe((accept: string) => {
+          this.translate.get('APP.CANCEL').subscribe((cancel: string) => {
 
+            document.addEventListener("backbutton", function (e) {
+              navigator.notification.confirm(
+                msg,
+                function (result) {
+                  if (result == 1) {
+                    navigator.app.exitApp();
+                  }
+                },
+                title,
+                [accept, cancel]
+              );
+            }, false);
+
+          });
+        });
+      });
+    });
   }
 
   private getData(state, parent, value) {

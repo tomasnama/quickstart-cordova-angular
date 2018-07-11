@@ -1,4 +1,12 @@
 {
+    "APP": {
+        "VERSION": "1.0.0",
+        "TITLE": "Quick",
+        "ACCEPT": "Accept",
+        "CANCEL": "Cancel",
+        "EXIT_TITLE": "Exit",
+        "EXIT_MSG": "Do you want to exit app?"
+    },
     "PAGE1": {
         "TITLE": "Demos",
         "TEXT": "Page 1 works!",
