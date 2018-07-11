@@ -28,7 +28,6 @@ export class AppComponent implements AfterViewInit {
   private icon: string;
 
 
-
   constructor(private titleService: Title,
     private router: Router,
     private menuService: MenuService,
@@ -58,10 +57,16 @@ export class AppComponent implements AfterViewInit {
     });
 
     document.addEventListener("backbutton", function (e) {
-      let r = confirm("Press a button!");
-      if (r == true) {
-        navigator.app.exitApp();
-      } 
+      navigator.notification.confirm(
+        'Do you want to exit?',
+        function (result) {
+          if (result == 1) {
+            navigator.app.exitApp();
+          }
+        },
+        'Exit',
+        ['Accept', 'Cancel']
+      );
     }, false);
 
   }

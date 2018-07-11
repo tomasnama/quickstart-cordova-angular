@@ -25,7 +25,6 @@ export class MenuService {
         } else {
           this.history.push(this.previousUrl);
         }
-        debugger;
       };
     });
     
@@ -40,11 +39,9 @@ export class MenuService {
   }
 
   public back(): void {
-    debugger;
     this.isBack = true;
     let _back = this.history[this.history.length-1];
     this.history.splice(this.history.length-1, 1);
-    debugger;
     this.router.navigate([_back], {skipLocationChange:true});
   }
 
