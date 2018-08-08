@@ -2,3 +2,8 @@ agm-map {
     height: calc(100% - 200px);
     padding: 10px;
 }
+
+#mapid {
+    height: calc(100% - 200px);
+    padding: 10px;
+}

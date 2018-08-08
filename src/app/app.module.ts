@@ -4,7 +4,6 @@ import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, Mat
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './components/location/location.component';
 import { QrComponent } from './components/qr/qr.component';
 import { CdkTableModule } from '@angular/cdk/table';
-import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -56,9 +54,6 @@ export function createTranslateLoader(http: HttpClient) {
     CdkTableModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({
-      apiKey:  'KEY'
-    }),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

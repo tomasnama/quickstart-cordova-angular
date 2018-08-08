@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MapsAPILoader } from '@agm/core';
-import { Marker } from '@agm/core/services/google-maps-types';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-location',
@@ -12,31 +11,33 @@ export class LocationComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   public zoom: number;
-  public markers: Array<Marker> = new Array<Marker>();
 
-  constructor(private mapsAPILoader: MapsAPILoader) { }
+  constructor() {
+
+  }
 
   ngOnInit() {
-    this.zoom = 7
+    this.zoom = 13
     navigator.geolocation.getCurrentPosition((position) => {
-      this.getPosition(position);
+      this.setPosition(position);
+      let mymap = L.map('mapid').setView([this.latitude, this.longitude], this.zoom);
+      let osm = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      });
+      osm.addTo(mymap);
+
     }, (error) => {
       this.errorPosition(error);
     });
   }
 
-  private getPosition(position) {
+  ngAfterViewInit() {
+
+  }
+
+  private setPosition(position) {
     this.latitude = position.coords.latitude;
     this.longitude = position.coords.longitude;
- 
-    var marker: any = {
-      lat: this.latitude,
-      lng: this.longitude,
-      info: 'You are here'
-    };
-
-    this.markers.push(marker);
-
   }
 
   private errorPosition(error) {
