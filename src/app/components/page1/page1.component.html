@@ -1,4 +1,4 @@
-<mat-list>
+<mat-nav-list>
     <mat-list-item class="page1-mat-list-item" (click)="goTexts()">
         <img class="material-icons" src="./assets/img/SQLite.svg" height="30"/>
         <span class="page1-spacer"></span>
@@ -26,4 +26,16 @@
             <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24"/>
         </button>
     </mat-list-item>
-</mat-list>
+    <mat-list-item class="page1-mat-list-item" (click)="goSwipe()">
+        <img class="material-icons" src="./assets/img/swipe.svg" height="30"  />
+        <span class="page1-spacer"></span>
+        <span>{{ 'SWIPE.TITLE' | translate }}</span>
+        <span class="page1-spacer"></span>
+       <button mat-icon-button (click)="goSwipe()">
+            <img class="material-icons" src="./assets/img/ic_keyboard_arrow_right_black_24px.svg" width="24"/>
+        </button>
+    </mat-list-item>
+
+
+
+<mat-nav-list>

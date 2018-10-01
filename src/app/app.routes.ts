@@ -7,6 +7,7 @@ import { TextDetailComponent } from "app/components/texts/text-detail/text-detai
 import { LocationComponent } from "app/components/location/location.component";
 import { QrComponent } from "app/components/qr/qr.component";
 import { NgModule } from '@angular/core';
+import { SwipeComponent } from 'app/components/swipe/swipe.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,14 @@ const routes: Routes = [
     component: QrComponent,
     data: {
       title: 'QR.TITLE',
+      back: true,
+    }
+  },
+  {
+    path: 'swipe',
+    component: SwipeComponent,
+    data: {
+      title: 'SWIPE.TITLE',
       back: true,
     }
   },

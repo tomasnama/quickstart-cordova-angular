@@ -48,6 +48,7 @@
     "mdn-polyfills": "^5.8.0",
     "node-gyp-install": "^2.2.0",
     "npmlog": "^4.1.2",
+    "phonegap-plugin-barcodescanner": "^8.0.0",
     "rxjs": "^5.5.11",
     "zone.js": "^0.8.26"
   },
@@ -78,7 +79,10 @@
       "cordova-plugin-network-information": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-dialogs": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": []
   }

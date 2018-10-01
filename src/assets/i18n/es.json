@@ -37,5 +37,8 @@
     },
     "QR": {
         "TITLE": "QR"
+    },
+    "SWIPE": {
+        "TITLE": "Swipe"
     }
 }

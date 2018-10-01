@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule, MatCardModule, MatMenuModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatTabsModule } from '@angular/material';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -9,7 +9,7 @@ import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
 import { AboutComponent } from './components/about/about.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { MenuService } from 'app/components/menu/menu.service';
+import { MenuService } from './components/menu/menu.service';
 import { TextsComponent } from './components/texts/texts.component';
 import { TextDetailComponent } from './components/texts/text-detail/text-detail.component';
 import { ExitappdialogComponent } from './components/dialogs/exitappdialog/exitappdialog.component';
@@ -19,6 +19,7 @@ import { QrComponent } from './components/qr/qr.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AppRoutingModule } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SwipeComponent } from './components/swipe/swipe.component';
 
 
 
@@ -37,7 +38,8 @@ export function createTranslateLoader(http: HttpClient) {
     TextDetailComponent,
     LocationComponent,
     QrComponent,
-    ExitappdialogComponent
+    ExitappdialogComponent,
+    SwipeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatInputModule,
     MatMenuModule,
     MatFormFieldModule,
+    MatTabsModule,
     CdkTableModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -1,0 +1,10 @@
+<div class="mat-content" flex mat-scroll-y (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)">
+    <mat-tab-group mat-stretch-tabs [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
+            <mat-tab>
+               Item 1
+            </mat-tab>
+            <mat-tab>
+                Item 2
+            </mat-tab>
+    </mat-tab-group>
+</div>

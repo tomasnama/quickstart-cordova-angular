@@ -25,4 +25,7 @@ export class Page1Component implements OnInit {
     this.router.navigate(['/qr'], {skipLocationChange:true});
   }
 
+  public goSwipe(): void {
+    this.router.navigate(['/swipe'], {skipLocationChange:true});
+  }
 }
